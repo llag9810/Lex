@@ -1,0 +1,27 @@
+begin
+    1x;
+    a := 5;
+    b := 2;
+    a := a + b;
+
+    if a = 2
+    then b = 1
+    else b = b + 3*1113
+    ifaa := 3;
+end
+
+aaa1123 := a + 2*b;
+
+/* 这是一段不换行的注释,它不应该出现在token中哈哈哈喵喵喵 notSupposedToAppear := 123 */
+
+IF a then b else c;
+
+/* 这是一段换行的注释
+    test1 := 1;
+    test2 := 2;
+    begin
+    end
+    if test3
+    then test4
+    else 这里不应该出现
+*/
