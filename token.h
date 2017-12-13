@@ -30,7 +30,7 @@ public:
 class token {
 public:
     string name;
-    const token_type type;
+    token_type type;
 
     token(const string &name, const token_type &type)
             : name(name), type(type) {}

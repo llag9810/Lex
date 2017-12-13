@@ -6,11 +6,13 @@ using std::unordered_map;
 const vector<string> lexer::reserve_words =
         {"begin", "end", "if", "then", "else", "int", "float", "main"};
 
-token lexer::getsym(string::const_iterator &sym) {
+token lexer::getsym() {
+    auto &sym = *sym_p;
+
     while (std::isspace(sym[0])) {
         ++sym;
     }
-    char c = sym[0];
+
     if (std::isalpha(sym[0])) {
         string token_name;
         while (std::isalpha(sym[0]) || std::isdigit(sym[0])) {
@@ -29,6 +31,15 @@ token lexer::getsym(string::const_iterator &sym) {
         while (std::isdigit(sym[0])) {
             token_name += sym[0];
             ++sym;
+        }
+        bool flag = false;
+        while (isalpha(sym[0]) && !isspace(sym[0])) {
+            token_name += sym[0];
+            ++sym;
+            flag = true;
+        }
+        if (flag) {
+            return token(token_name, token_type::error);
         }
         return token(token_name, token_type("INTSY", 21));
     } else if (std::ispunct(sym[0]) && sym[0] != '/' && sym[0] != ':') {
@@ -54,7 +65,7 @@ token lexer::getsym(string::const_iterator &sym) {
             return token(":", token_type::non_identifier_types.at(":"));
         }
     } else {
-        return token("error", token_type::error);
+        return token(string(1, sym[0]), token_type::error);
     }
 }
 

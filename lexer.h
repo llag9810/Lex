@@ -13,7 +13,12 @@ using std::string;
 
 class lexer {
 public:
-    token getsym(string::const_iterator &sym);
+    string::const_iterator *sym_p;
+    token getsym();
+    lexer(string::const_iterator &it)
+             { sym_p = &it; }
+    lexer(const lexer &l)
+         { sym_p = l.sym_p; }
 private:
     bool is_reserve(const string &word);
     const static vector<string> reserve_words;

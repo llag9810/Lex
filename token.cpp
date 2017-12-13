@@ -16,7 +16,9 @@ const unordered_map<string, token_type> token_type::non_identifier_types {
         {";", token_type("SEMISY", 29)},
         {":", token_type("COLONSY", 30)},
         {":=", token_type("ASSIGNSY", 31)},
-        {"=", token_type("EQUSY", 32)}
+        {"=", token_type("EQUSY", 32)},
+        {"[", token_type("LSQUBRESY", 33)},
+        {"]", token_type("RSQUBRESY", 34)}
 };
 
 const token_type token_type::comment("COMMENT", 0);
