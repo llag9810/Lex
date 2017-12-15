@@ -22,7 +22,7 @@ int main() {
         std::cout << t.name + "\t" + t.type.type_name << std::endl;
     }
 
-/*    fs.open("test2.txt");
+    fs.open("test2.txt");
     s = "";
     while (fs) {
         s += fs.get();
@@ -30,6 +30,6 @@ int main() {
     auto it2 = s.cbegin();
     lexer l2(it2);
     parser p(l2);
-    p.statement(l2.getsym());*/
+    p.statement(l2.getsym());
     return 0;
 }
